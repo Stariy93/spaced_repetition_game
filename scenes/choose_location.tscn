@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://jgaatv0xm72u"]
+
+[ext_resource type="Theme" uid="uid://cdxytkrunvxkc" path="res://themes/pixel_dark_theme.tres" id="1_eiyk5"]
+[ext_resource type="Texture2D" uid="uid://cpbjnqr787nu0" path="res://arts/location_pressed.png" id="2_feds5"]
+[ext_resource type="Script" uid="uid://claoawvn38syp" path="res://scripts/choose_location.gd" id="2_y5lje"]
+[ext_resource type="Texture2D" uid="uid://dytj1jq2rbny5" path="res://arts/location_normal.png" id="3_ni11f"]
+[ext_resource type="Texture2D" uid="uid://c1kbopbvg38un" path="res://arts/location_hover.png" id="5_lqwxe"]
+[ext_resource type="Texture2D" uid="uid://bw8c7qtkpaqn5" path="res://arts/location_disabled.png" id="6_ni11f"]
+
+[node name="ChooseLocation" type="Control" unique_id=734578428]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_eiyk5")
+script = ExtResource("2_y5lje")
+
+[node name="Background" type="ColorRect" parent="." unique_id=81313472]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.078431375, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=564773441]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2108178894]
+layout_mode = 2
+
+[node name="ContentsRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1429682013]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 0
+text = "Enter the required number of words and complete locations to unlock the next one."
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer" unique_id=874235356]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" unique_id=585191027]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Location1VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1189077308]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LocationNameLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Location1VBoxContainer" unique_id=1609605219]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+text = "location name"
+
+[node name="Location1TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Location1VBoxContainer" unique_id=649611429]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("3_ni11f")
+texture_pressed = ExtResource("2_feds5")
+texture_hover = ExtResource("5_lqwxe")
+texture_disabled = ExtResource("6_ni11f")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="AddedWordsLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Location1VBoxContainer" unique_id=741479938]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "added words -> 0 / 30"
+
+[node name="ToNextLocationLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Location1VBoxContainer" unique_id=1724375741]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "until the next location unlocks 98%"
+
+[node name="Location1VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1052898259]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LocationNameLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Location1VBoxContainer2" unique_id=412779178]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+text = "location name"
+
+[node name="Location1TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Location1VBoxContainer2" unique_id=152688833]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("3_ni11f")
+texture_pressed = ExtResource("2_feds5")
+texture_hover = ExtResource("5_lqwxe")
+texture_disabled = ExtResource("6_ni11f")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="AddedWordsLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Location1VBoxContainer2" unique_id=1223628814]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "added words -> 0 / 30"
+
+[node name="ToNextLocationLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Location1VBoxContainer2" unique_id=1657693579]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "until the next location unlocks 98%"
+
+[node name="Location1VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=807420897]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LocationNameLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Location1VBoxContainer3" unique_id=329579231]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+text = "location name"
+
+[node name="Location1TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Location1VBoxContainer3" unique_id=1252080188]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("3_ni11f")
+texture_pressed = ExtResource("2_feds5")
+texture_hover = ExtResource("5_lqwxe")
+texture_disabled = ExtResource("6_ni11f")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="AddedWordsLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Location1VBoxContainer3" unique_id=811594927]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "added words -> 0 / 30"
+
+[node name="ToNextLocationLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Location1VBoxContainer3" unique_id=1986210098]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "until the next location unlocks 98%"
+
+[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1961372366]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "back"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ExitButton" to="." method="_on_button_pressed"]

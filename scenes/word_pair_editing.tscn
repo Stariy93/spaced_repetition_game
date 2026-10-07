@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://md2tsmtkso0o"]
+
+[ext_resource type="Theme" uid="uid://cdxytkrunvxkc" path="res://themes/pixel_dark_theme.tres" id="1_d5tu2"]
+[ext_resource type="Script" uid="uid://dy21w2tl6jiue" path="res://scripts/word_pair_editing.gd" id="1_vbpct"]
+
+[node name="HBoxContainer" type="Panel" unique_id=1753808160]
+custom_minimum_size = Vector2(0, 80)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("1_d5tu2")
+script = ExtResource("1_vbpct")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1932273479]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=381878456]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_d5tu2")
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=26959734]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Word1Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2055098813]
+layout_mode = 2
+text = "word"
+
+[node name="RemoveButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=875466707]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "remove"
+
+[node name="EditButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1404760274]
+layout_mode = 2
+text = "edit"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=771983882]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Word2Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=661217050]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+text = "word"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/RemoveButton" to="." method="_on_remove_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/EditButton" to="." method="_on_edit_button_pressed"]

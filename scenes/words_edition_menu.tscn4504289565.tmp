@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://o1f83jrbwc0d"]
+
+[ext_resource type="Script" uid="uid://noklj6y4ea7b" path="res://scripts/words_edition_menu.gd" id="1_11wvs"]
+
+[sub_resource type="Theme" id="Theme_11wvs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0x417"]
+resource_local_to_scene = true
+bg_color = Color(0.2385039, 0.3159371, 0.24538106, 1)
+
+[node name="WordsEditionMenu" type="Control" unique_id=988150010]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_11wvs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2024998283]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=1106033167]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer" unique_id=960197548]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BackButton" type="Button" parent="VBoxContainer" unique_id=1552910042]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "back"
+
+[node name="Panel" type="Panel" parent="." unique_id=335846708]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_11wvs")
+theme_override_styles/panel = SubResource("StyleBoxFlat_0x417")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=715293414]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="WordLabel" type="Label" parent="Panel/VBoxContainer" unique_id=1158311850]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "ener new word:"
+
+[node name="WordHBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1433602135]
+layout_mode = 2
+
+[node name="WordLineEdit" type="LineEdit" parent="Panel/VBoxContainer/WordHBoxContainer" unique_id=357601636]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+
+[node name="TranslationLabel" type="Label" parent="Panel/VBoxContainer" unique_id=677550014]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "ener new translation:"
+
+[node name="TranslationHBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=158117859]
+layout_mode = 2
+
+[node name="TranslationLineEdit" type="LineEdit" parent="Panel/VBoxContainer/TranslationHBoxContainer" unique_id=1425350635]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1187776533]
+layout_mode = 2
+
+[node name="AcceptButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer" unique_id=274852085]
+layout_mode = 2
+text = "accept"
+
+[node name="CenselButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer" unique_id=1111734487]
+layout_mode = 2
+text = "censel"
+
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/AcceptButton" to="." method="_on_accept_button_pressed"]

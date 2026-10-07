@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://2bf8l8lehhxn"]
+
+[ext_resource type="Theme" uid="uid://cdxytkrunvxkc" path="res://themes/pixel_dark_theme.tres" id="1_b607m"]
+
+[node name="LocationButton" type="Panel" unique_id=1059986293]
+theme = ExtResource("1_b607m")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1666845293]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer" unique_id=698175796]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1536699381]
+layout_mode = 2
+text = "words added
+0/100"

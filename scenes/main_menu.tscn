@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://bdcc0xw23oamx"]
+
+[ext_resource type="Script" uid="uid://w3wytal8denn" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Theme" uid="uid://cdxytkrunvxkc" path="res://themes/pixel_dark_theme.tres" id="2_bqqt6"]
+
+[sub_resource type="Theme" id="Theme_ekxnf"]
+
+[sub_resource type="Theme" id="Theme_bqqt6"]
+
+[node name="MainMenu" type="Control" unique_id=2047414095]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1985943516]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.078431375, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1180427748]
+custom_minimum_size = Vector2(500, 850)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -425.0
+offset_right = 250.0
+offset_bottom = 425.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_bqqt6")
+theme_override_constants/separation = 50
+
+[node name="AddNewWordsButton" type="Button" parent="VBoxContainer" unique_id=1423461333]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_ekxnf")
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+theme_override_font_sizes/font_size = 30
+text = "add new words"
+
+[node name="EditWordsButton" type="Button" parent="VBoxContainer" unique_id=671216424]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_bqqt6")
+theme_override_font_sizes/font_size = 30
+text = "edit words"
+
+[node name="ChooseLocationButton" type="Button" parent="VBoxContainer" unique_id=1723157741]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "choose location"
+
+[node name="BackButton" type="Button" parent="VBoxContainer" unique_id=728634743]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 30
+text = "back"
+
+[connection signal="pressed" from="VBoxContainer/AddNewWordsButton" to="." method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/EditWordsButton" to="." method="_on_edit_words_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ChooseLocationButton" to="." method="_on_choose_location_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_button_pressed"]

@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://cop7wvg24foag"]
+
+[ext_resource type="Script" uid="uid://bie3f0fxrtk4o" path="res://scripts/start_menu.gd" id="1_ouf4f"]
+[ext_resource type="FontFile" uid="uid://nsgl6fav7xix" path="res://font/ARCADECLASSIC.TTF" id="2_m7x51"]
+[ext_resource type="Theme" uid="uid://c8m26aiunn7cs" path="res://themes/button_theme.tres" id="3_h61rw"]
+[ext_resource type="Theme" uid="uid://cdxytkrunvxkc" path="res://themes/pixel_dark_theme.tres" id="4_h61rw"]
+[ext_resource type="StyleBox" uid="uid://ce8u8c0ihivl7" path="res://themes/button_normal.tres" id="5_nxjfj"]
+[ext_resource type="StyleBox" uid="uid://dd2wcibjlslxd" path="res://themes/button_press.tres" id="6_u4qax"]
+[ext_resource type="StyleBox" uid="uid://ctbj0upisjjyv" path="res://themes/button_hover.tres" id="7_5byqq"]
+
+[sub_resource type="Theme" id="Theme_nxjfj"]
+
+[sub_resource type="Theme" id="Theme_u4qax"]
+
+[sub_resource type="Theme" id="Theme_5byqq"]
+
+[node name="StartMenu" type="Control" unique_id=3123925]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_h61rw")
+script = ExtResource("1_ouf4f")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1637069042]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.13725491, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1640834457]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_h61rw")
+theme_override_constants/separation = 20
+
+[node name="NewGameButton" type="Button" parent="VBoxContainer" unique_id=1861612556]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_nxjfj")
+theme_override_fonts/font = ExtResource("2_m7x51")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("5_nxjfj")
+theme_override_styles/pressed = ExtResource("6_u4qax")
+theme_override_styles/hover = ExtResource("7_5byqq")
+text = "New game"
+
+[node name="LoadGameButton" type="Button" parent="VBoxContainer" unique_id=315338996]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_u4qax")
+theme_override_fonts/font = ExtResource("2_m7x51")
+theme_override_font_sizes/font_size = 30
+text = "Load game"
+
+[node name="ExitGameButton" type="Button" parent="VBoxContainer" unique_id=406465135]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_5byqq")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("5_nxjfj")
+theme_override_styles/pressed = ExtResource("6_u4qax")
+theme_override_styles/hover = ExtResource("7_5byqq")
+text = "Exit
+"
+
+[connection signal="pressed" from="VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/LoadGameButton" to="." method="_on_load_game_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]

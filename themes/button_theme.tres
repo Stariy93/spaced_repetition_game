@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://c8m26aiunn7cs"]
+
+[ext_resource type="FontFile" uid="uid://nsgl6fav7xix" path="res://font/ARCADECLASSIC.TTF" id="1_y3u7b"]
+
+[resource]
+default_font = ExtResource("1_y3u7b")
+default_font_size = 30
