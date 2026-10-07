@@ -1,26 +1,45 @@
 [gd_scene format=3 uid="uid://2bf8l8lehhxn"]
 
 [ext_resource type="Theme" uid="uid://cdxytkrunvxkc" path="res://themes/pixel_dark_theme.tres" id="1_b607m"]
+[ext_resource type="Texture2D" uid="uid://dytj1jq2rbny5" path="res://arts/location_normal.png" id="2_t2efo"]
+[ext_resource type="Script" uid="uid://c5wnyfi8eo8ao" path="res://scenes/location_button.gd" id="2_umu6d"]
+[ext_resource type="Texture2D" uid="uid://cpbjnqr787nu0" path="res://arts/location_pressed.png" id="3_umu6d"]
+[ext_resource type="Texture2D" uid="uid://c1kbopbvg38un" path="res://arts/location_hover.png" id="4_m0mu5"]
+[ext_resource type="Texture2D" uid="uid://bw8c7qtkpaqn5" path="res://arts/location_disabled.png" id="5_uj1jj"]
 
-[node name="LocationButton" type="Panel" unique_id=1059986293]
+[node name="LocationButton" type="VBoxContainer" unique_id=1572926164]
 theme = ExtResource("1_b607m")
+script = ExtResource("2_umu6d")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1666845293]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="TextureButton" type="TextureButton" parent="MarginContainer" unique_id=698175796]
+[node name="Location1VBoxContainer" type="VBoxContainer" parent="." unique_id=579527051]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer" unique_id=1536699381]
+[node name="LocationNameLabel" type="Label" parent="Location1VBoxContainer" unique_id=222184368]
 layout_mode = 2
-text = "words added
-0/100"
+size_flags_horizontal = 4
+size_flags_vertical = 1
+text = "location name"
+
+[node name="Location1TextureButton" type="TextureButton" parent="Location1VBoxContainer" unique_id=1536403185]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("2_t2efo")
+texture_pressed = ExtResource("3_umu6d")
+texture_hover = ExtResource("4_m0mu5")
+texture_disabled = ExtResource("5_uj1jj")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="AddedWordsLabel" type="Label" parent="Location1VBoxContainer" unique_id=259257114]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "added words -> 0 / 30"
+
+[node name="ToNextLocationLabel" type="Label" parent="Location1VBoxContainer" unique_id=22855789]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "until the next location unlocks 98%"
+
+[connection signal="pressed" from="Location1VBoxContainer/Location1TextureButton" to="." method="_on_location_1_texture_button_pressed"]

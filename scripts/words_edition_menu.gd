@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 	pass
 
 
+#Adding a new words to word pairs dictionary
 func add_word_pair() -> void:
 	if WordDictionary.word_dictionary.is_empty():
 		return

@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 	pass
 
 
+#This function changes word and translations, save a new values and clear imput fields
 func _on_accept_button_pressed() -> void:
 	WordDictionary.word_dictionary[value1.text] = {}
 	WordDictionary.word_dictionary[value1.text] = {"translation": value2.text, "level": 1}
@@ -20,5 +21,6 @@ func _on_accept_button_pressed() -> void:
 	$VBoxContainer/Value1LineEdit.text = ""
 	$VBoxContainer/Value2LineEdit.text = ""
 
+#Move to main menu
 func _on_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

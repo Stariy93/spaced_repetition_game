@@ -1,11 +1,8 @@
 [gd_scene format=3 uid="uid://jgaatv0xm72u"]
 
 [ext_resource type="Theme" uid="uid://cdxytkrunvxkc" path="res://themes/pixel_dark_theme.tres" id="1_eiyk5"]
-[ext_resource type="Texture2D" uid="uid://cpbjnqr787nu0" path="res://arts/location_pressed.png" id="2_feds5"]
 [ext_resource type="Script" uid="uid://claoawvn38syp" path="res://scripts/choose_location.gd" id="2_y5lje"]
-[ext_resource type="Texture2D" uid="uid://dytj1jq2rbny5" path="res://arts/location_normal.png" id="3_ni11f"]
-[ext_resource type="Texture2D" uid="uid://c1kbopbvg38un" path="res://arts/location_hover.png" id="5_lqwxe"]
-[ext_resource type="Texture2D" uid="uid://bw8c7qtkpaqn5" path="res://arts/location_disabled.png" id="6_ni11f"]
+[ext_resource type="PackedScene" uid="uid://2bf8l8lehhxn" path="res://scenes/location_button.tscn" id="3_aehhn"]
 
 [node name="ChooseLocation" type="Control" unique_id=734578428]
 layout_mode = 3
@@ -56,98 +53,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Location1VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1189077308]
+[node name="LocationButton" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1572926164 instance=ExtResource("3_aehhn")]
 layout_mode = 2
-size_flags_vertical = 3
-
-[node name="LocationNameLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Location1VBoxContainer" unique_id=1609605219]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 1
-text = "location name"
-
-[node name="Location1TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Location1VBoxContainer" unique_id=649611429]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 2
-disabled = true
-texture_normal = ExtResource("3_ni11f")
-texture_pressed = ExtResource("2_feds5")
-texture_hover = ExtResource("5_lqwxe")
-texture_disabled = ExtResource("6_ni11f")
-ignore_texture_size = true
-stretch_mode = 3
-
-[node name="AddedWordsLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Location1VBoxContainer" unique_id=741479938]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "added words -> 0 / 30"
-
-[node name="ToNextLocationLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Location1VBoxContainer" unique_id=1724375741]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "until the next location unlocks 98%"
-
-[node name="Location1VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1052898259]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="LocationNameLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Location1VBoxContainer2" unique_id=412779178]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 1
-text = "location name"
-
-[node name="Location1TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Location1VBoxContainer2" unique_id=152688833]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 2
-disabled = true
-texture_normal = ExtResource("3_ni11f")
-texture_pressed = ExtResource("2_feds5")
-texture_hover = ExtResource("5_lqwxe")
-texture_disabled = ExtResource("6_ni11f")
-ignore_texture_size = true
-stretch_mode = 3
-
-[node name="AddedWordsLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Location1VBoxContainer2" unique_id=1223628814]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "added words -> 0 / 30"
-
-[node name="ToNextLocationLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Location1VBoxContainer2" unique_id=1657693579]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "until the next location unlocks 98%"
-
-[node name="Location1VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=807420897]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="LocationNameLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Location1VBoxContainer3" unique_id=329579231]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 1
-text = "location name"
-
-[node name="Location1TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Location1VBoxContainer3" unique_id=1252080188]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 2
-disabled = true
-texture_normal = ExtResource("3_ni11f")
-texture_pressed = ExtResource("2_feds5")
-texture_hover = ExtResource("5_lqwxe")
-texture_disabled = ExtResource("6_ni11f")
-ignore_texture_size = true
-stretch_mode = 3
-
-[node name="AddedWordsLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Location1VBoxContainer3" unique_id=811594927]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "added words -> 0 / 30"
-
-[node name="ToNextLocationLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Location1VBoxContainer3" unique_id=1986210098]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "until the next location unlocks 98%"
+location_name = "field"
+required_words_amount = 5
 
 [node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1961372366]
 layout_mode = 2
