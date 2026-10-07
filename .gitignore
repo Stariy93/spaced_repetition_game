@@ -1,13 +1,9 @@
-<<<<<<< HEAD
-# Godot 4.2+ specific ignores
-~*.dll
-
 # Godot 4+ specific ignores
 .godot/
 .nomedia
+/android/
 
 # Godot-specific ignores
-.import/
 export.cfg
 export_credentials.cfg
 *.tmp
@@ -15,17 +11,22 @@ export_credentials.cfg
 # Imported translations (automatically generated from CSV files)
 *.translation
 
-# Mono-specific ignores
+# Mono-specific ignores (keep if using C#)
 .mono/
 data_*/
 mono_crash.*.json
 
 # Export outputs
 *.exe
-# Uncomment if your project does not version PCK files as runtime dependencies.
-# *.pck
-=======
-# Godot 4+ specific ignores
-.godot/
-/android/
->>>>>>> 86731bf (Initial commit)
+*.apk
+*.aab
+*.ipa
+build/
+exports/
+dist/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
