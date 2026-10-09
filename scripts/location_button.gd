@@ -1,7 +1,8 @@
 extends VBoxContainer
 @export var location_name: String
 @export var required_words_amount: int
-
+@export var enemies_level: int = 1
+@export var normal_image: CompressedTexture2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Location1VBoxContainer/LocationNameLabel.text = location_name

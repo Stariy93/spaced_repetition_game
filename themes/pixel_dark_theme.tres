@@ -27,6 +27,33 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnx2b"]
+bg_color = Color(0.34117648, 0.12156863, 0.1882353, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d131h"]
+bg_color = Color(0.9529412, 0.9529412, 0.9607843, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.30588236, 0.78039217, 0.85490197, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
 [resource]
 default_font = ExtResource("1_sjdaq")
 default_font_size = 30
@@ -41,3 +68,5 @@ LineEdit/styles/focus = SubResource("StyleBoxFlat_h5pjc")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_11j4q")
 LineEdit/styles/read_only = SubResource("StyleBoxFlat_vr2gu")
 Panel/styles/panel = ExtResource("5_sjdaq")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_lnx2b")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_d131h")
