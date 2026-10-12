@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 func _on_accept_button_pressed() -> void:
 	WordDictionary.word_dictionary[value1.text] = {}
 	WordDictionary.word_dictionary[value1.text] = {"translation": value2.text, "level": 1}
-	WordDictionary.save_dictionary()
+	WordDictionary.save_dict(WordDictionary.word_dictionary, WordDictionary.WORDS_SAVE_PATH)
 	$VBoxContainer/Value1LineEdit.text = ""
 	$VBoxContainer/Value2LineEdit.text = ""
 

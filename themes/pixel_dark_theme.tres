@@ -4,7 +4,6 @@
 [ext_resource type="StyleBox" uid="uid://ctbj0upisjjyv" path="res://themes/button_hover.tres" id="2_p1iab"]
 [ext_resource type="StyleBox" uid="uid://ce8u8c0ihivl7" path="res://themes/button_normal.tres" id="3_sjdaq"]
 [ext_resource type="StyleBox" uid="uid://dd2wcibjlslxd" path="res://themes/button_press.tres" id="4_sew5y"]
-[ext_resource type="StyleBox" uid="uid://dedihl7c2heyp" path="res://themes/panel_style.tres" id="5_sjdaq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5pjc"]
 bg_color = Color(0, 0, 0.078431375, 1)
@@ -26,6 +25,13 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1iab"]
+bg_color = Color(0, 0, 0.003921569, 0.14117648)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnx2b"]
 bg_color = Color(0.34117648, 0.12156863, 0.1882353, 0)
@@ -67,6 +73,7 @@ Button/styles/pressed = ExtResource("4_sew5y")
 LineEdit/styles/focus = SubResource("StyleBoxFlat_h5pjc")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_11j4q")
 LineEdit/styles/read_only = SubResource("StyleBoxFlat_vr2gu")
-Panel/styles/panel = ExtResource("5_sjdaq")
+Panel/styles/panel = SubResource("StyleBoxFlat_p1iab")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_p1iab")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_lnx2b")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_d131h")

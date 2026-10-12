@@ -15,13 +15,14 @@ func _process(delta: float) -> void:
 # main menu
 func _on_new_game_button_pressed() -> void:
 	WordDictionary.word_dictionary = {}
-	WordDictionary.save_dictionary()
+	WordDictionary.save_dict(WordDictionary.word_dictionary, WordDictionary.WORDS_SAVE_PATH)
+	WordDictionary.save_dict(WordDictionary.inventory, WordDictionary.INVENTORY)
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 
 # Load word pairs dictionary from json file and open main menu
 func _on_load_game_button_pressed() -> void:
-	WordDictionary.load_words_dictionary()
+	WordDictionary.load_dict(WordDictionary.word_dictionary, WordDictionary.WORDS_SAVE_PATH)
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 

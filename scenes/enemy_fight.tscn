@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://cdxytkrunvxkc" path="res://themes/pixel_dark_theme.tres" id="1_u4jvl"]
 [ext_resource type="Texture2D" uid="uid://wasjq4qac7n1" path="res://arts/enemy_1.png" id="2_5v54e"]
+[ext_resource type="Script" uid="uid://fntsfkwftueo" path="res://scripts/enemy_fight.gd" id="2_lnx2b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnx2b"]
 bg_color = Color(0.34117648, 0.12156863, 0.1882353, 0)
@@ -30,47 +31,137 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[node name="EnemyFight" type="MarginContainer" unique_id=2138859691]
+[node name="EnemyFight" type="Control" unique_id=211385784]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("1_u4jvl")
+script = ExtResource("2_lnx2b")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1521447176]
+layout_mode = 0
+offset_right = 540.0
+offset_bottom = 960.0
+color = Color(0, 0, 0.11764706, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=796283209]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1521447176]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1753031547]
 layout_mode = 2
-color = Color(0, 0, 0.11764706, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1753031547]
+[node name="EnemyNameLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1488603893]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-
-[node name="EnemyNameLabel" type="Label" parent="VBoxContainer" unique_id=1488603893]
-layout_mode = 2
-size_flags_horizontal = 4
 text = "Enemy name"
 
-[node name="EnemyHPProgressBar" type="ProgressBar" parent="VBoxContainer" unique_id=778618943]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=534177458]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="EnemyHpLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=360763667]
+layout_mode = 2
+text = "hp"
+
+[node name="EnemyHPProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=605400476]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
-size_flags_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
 theme_override_styles/background = SubResource("StyleBoxFlat_lnx2b")
 theme_override_styles/fill = SubResource("StyleBoxFlat_d131h")
 value = 50.0
 show_percentage = false
 
-[node name="EnemyIconTextureRect" type="TextureRect" parent="VBoxContainer" unique_id=755701749]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("2_5v54e")
-
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=110242805]
+[node name="EnemyIconTextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=755701749]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("2_5v54e")
+
+[node name="WordPanel" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=1497542560]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="WordLabel" type="Label" parent="MarginContainer/VBoxContainer/WordPanel" unique_id=110242805]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = -16.5
+offset_right = 29.0
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
 text = "word"
+
+[node name="TurnCardButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=525214596]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "turn the card"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer" unique_id=2115338128]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" unique_id=130629827]
+layout_mode = 2
+
+[node name="GameChat" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=909583184]
+layout_mode = 2
+
+[node name="BoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1035277446]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RightButton" type="Button" parent="MarginContainer/VBoxContainer/BoxContainer" unique_id=514461711]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_vertical = 4
+disabled = true
+text = "right"
+
+[node name="WrongButton" type="Button" parent="MarginContainer/VBoxContainer/BoxContainer" unique_id=532037753]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+disabled = true
+text = "wrong"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=481934870]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="PlayerHpLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1248946651]
+layout_mode = 2
+text = "hp"
+
+[node name="PlayerHPProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=992983233]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_lnx2b")
+theme_override_styles/fill = SubResource("StyleBoxFlat_d131h")
+value = 50.0
+show_percentage = false

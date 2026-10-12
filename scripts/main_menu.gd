@@ -8,7 +8,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(WordDictionary.word_dictionary)
+	print(WordDictionary.inventory)
+	
 
 
 #Go to menu where we can add a new word

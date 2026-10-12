@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c53fiyp380jrd"]
+
+[ext_resource type="Theme" uid="uid://cdxytkrunvxkc" path="res://themes/pixel_dark_theme.tres" id="1_lual2"]
+[ext_resource type="Script" uid="uid://d0kf8gmif48gk" path="res://scenes/inventory/item_slot.gd" id="2_qtd6e"]
+
+[node name="ItemSlot" type="Control" unique_id=1531392376]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_lual2")
+script = ExtResource("2_qtd6e")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=835912146]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0

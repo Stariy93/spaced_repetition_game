@@ -39,7 +39,8 @@ func _edit_button(word: String, translation: String) -> void:
 
 	
 func _remove_button(word: String) -> void:
-	WordDictionary.remove_word(word)
+	WordDictionary.remove_dict_element(WordDictionary.word_dictionary, WordDictionary.WORDS_SAVE_PATH,\
+	 word)
 	for chid in scroll_box.get_children():
 		chid.queue_free()
 	add_word_pair()
@@ -50,7 +51,8 @@ func _on_back_button_pressed() -> void:
 
 func _on_accept_button_pressed() -> void:
 	var new_value = {"translation": edit_panel_line_edit_2.text, "level": 1}
-	WordDictionary.change_word_key(old_key, edit_panel_line_edit_1.text, new_value)
+	WordDictionary.change_dict_key(WordDictionary.word_dictionary, WordDictionary.WORDS_SAVE_PATH, \
+	old_key, edit_panel_line_edit_1.text, new_value)
 	editing_panel.visible = false
 	for chid in scroll_box.get_children():
 		chid.queue_free()
