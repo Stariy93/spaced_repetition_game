@@ -56,6 +56,11 @@ theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0.4)
 theme_override_font_sizes/font_size = 30
 text = "add new words"
 
+[node name="FightButton" type="Button" parent="VBoxContainer" unique_id=1511877431]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "fight"
+
 [node name="EditWordsButton" type="Button" parent="VBoxContainer" unique_id=671216424]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -76,6 +81,7 @@ theme_override_font_sizes/font_size = 30
 text = "back"
 
 [connection signal="pressed" from="VBoxContainer/AddNewWordsButton" to="." method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/FightButton" to="." method="_on_fight_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/EditWordsButton" to="." method="_on_edit_words_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ChooseLocationButton" to="." method="_on_choose_location_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_button_pressed"]

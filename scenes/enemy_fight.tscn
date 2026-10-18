@@ -3,6 +3,16 @@
 [ext_resource type="Theme" uid="uid://cdxytkrunvxkc" path="res://themes/pixel_dark_theme.tres" id="1_u4jvl"]
 [ext_resource type="Texture2D" uid="uid://wasjq4qac7n1" path="res://arts/enemy_1.png" id="2_5v54e"]
 [ext_resource type="Script" uid="uid://fntsfkwftueo" path="res://scripts/enemy_fight.gd" id="2_lnx2b"]
+[ext_resource type="Script" uid="uid://cmk0txpqns3dx" path="res://scripts/enemy_data.gd" id="3_lnx2b"]
+
+[sub_resource type="Resource" id="Resource_d131h"]
+script = ExtResource("3_lnx2b")
+enemy_name = "farmer"
+icon_path = "res://arts/enemy_1.png"
+level = 1
+health_max = 100
+damage = 5
+metadata/_custom_type_script = "uid://cmk0txpqns3dx"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnx2b"]
 bg_color = Color(0.34117648, 0.12156863, 0.1882353, 0)
@@ -42,6 +52,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_u4jvl")
 script = ExtResource("2_lnx2b")
+enemy = SubResource("Resource_d131h")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1521447176]
 layout_mode = 0
