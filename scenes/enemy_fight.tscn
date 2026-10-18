@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://wasjq4qac7n1" path="res://arts/enemy_1.png" id="2_5v54e"]
 [ext_resource type="Script" uid="uid://fntsfkwftueo" path="res://scripts/enemy_fight.gd" id="2_lnx2b"]
 [ext_resource type="Script" uid="uid://cmk0txpqns3dx" path="res://scripts/enemy_data.gd" id="3_lnx2b"]
+[ext_resource type="Script" uid="uid://ph2pte5o5nr4" path="res://scripts/player_data.gd" id="4_d131h"]
 
 [sub_resource type="Resource" id="Resource_d131h"]
 script = ExtResource("3_lnx2b")
@@ -13,6 +14,13 @@ level = 1
 health_max = 100
 damage = 5
 metadata/_custom_type_script = "uid://cmk0txpqns3dx"
+
+[sub_resource type="Resource" id="Resource_0qja1"]
+script = ExtResource("4_d131h")
+level = 1
+health_max = 100
+damage = 5
+metadata/_custom_type_script = "uid://ph2pte5o5nr4"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnx2b"]
 bg_color = Color(0.34117648, 0.12156863, 0.1882353, 0)
@@ -53,6 +61,7 @@ size_flags_vertical = 3
 theme = ExtResource("1_u4jvl")
 script = ExtResource("2_lnx2b")
 enemy = SubResource("Resource_d131h")
+player = SubResource("Resource_0qja1")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1521447176]
 layout_mode = 0
@@ -176,3 +185,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_lnx2b")
 theme_override_styles/fill = SubResource("StyleBoxFlat_d131h")
 value = 50.0
 show_percentage = false
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TurnCardButton" to="." method="_on_turn_card_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BoxContainer/RightButton" to="." method="_on_right_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BoxContainer/WrongButton" to="." method="_on_wrong_button_pressed"]

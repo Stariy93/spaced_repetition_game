@@ -6,6 +6,7 @@ class_name Enemy
 @export var icon_path: String
 @export var level: int
 @export var health_max: int
+var health: int
 @export var damage: int
 
 # Called when the node enters the scene tree for the first time.
