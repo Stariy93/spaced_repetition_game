@@ -73,6 +73,11 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "choose location"
 
+[node name="InventoryButton" type="Button" parent="VBoxContainer" unique_id=479428]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "inventory"
+
 [node name="BackButton" type="Button" parent="VBoxContainer" unique_id=728634743]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -84,4 +89,5 @@ text = "back"
 [connection signal="pressed" from="VBoxContainer/FightButton" to="." method="_on_fight_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/EditWordsButton" to="." method="_on_edit_words_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ChooseLocationButton" to="." method="_on_choose_location_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/InventoryButton" to="." method="_on_inventory_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_button_pressed"]

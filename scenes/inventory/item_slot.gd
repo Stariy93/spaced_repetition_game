@@ -1,13 +1,16 @@
 extends Control
-class_name Item_slot
-@onready var slot_icon: PanelContainer = $PanelContainer
-const Item_preload = preload("res://scenes/inventory/item.tscn")
-var item: Item
+
+var item_prefab = preload("res://scenes/inventory/item.tscn")
+
+@export var slot_data: Item_slot_data
+
 @onready var panel: PanelContainer = $PanelContainer
+
+var index: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	update_ui()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,16 +18,21 @@ func _process(delta: float) -> void:
 	pass
 	
 	
-func add_item(new_item: Item) -> void:
-	item = new_item
-	slot_icon.add_child(item)
+func update_ui() -> void:
+	for child in panel.get_children():
+		child.queue_free()
+
+	if slot_data == null or slot_data.item_data == null:
+		return
+
+	var item = item_prefab.instantiate()
+	item.item_data = slot_data.item_data
+	panel.add_child(item)
+	item.update_ui()
 	
 	
-func remove_item(new_item: Item) -> void:
-	slot_icon.remove_child(new_item)
+
+		
+
+		
 	
-	
-func place_item() -> void:
-	var item_preload = Item_preload.instantiate()
-	item_preload.set_item("res://arts/weapon_1.png", self)
-	add_item(item_preload)	

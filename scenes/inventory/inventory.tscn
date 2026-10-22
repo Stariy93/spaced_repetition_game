@@ -1,8 +1,29 @@
 [gd_scene format=3 uid="uid://xb31den6wptc"]
 
 [ext_resource type="Theme" uid="uid://cdxytkrunvxkc" path="res://themes/pixel_dark_theme.tres" id="1_el5y6"]
-[ext_resource type="Script" uid="uid://cdalfkc8pjvq1" path="res://scripts/inventory/inventory.gd" id="2_tvok8"]
+[ext_resource type="Script" uid="uid://bvxbhmoigyknp" path="res://scenes/inventory/inventory.gd" id="2_el5y6"]
 [ext_resource type="PackedScene" uid="uid://c53fiyp380jrd" path="res://scenes/inventory/item_slot.tscn" id="3_bxceu"]
+[ext_resource type="Script" uid="uid://cdalfkc8pjvq1" path="res://scripts/inventory/inventory_data.gd" id="3_tvok8"]
+[ext_resource type="Script" uid="uid://djafy0p6avrir" path="res://scripts/inventory/item_data.gd" id="3_v8e04"]
+[ext_resource type="Script" uid="uid://d0kf8gmif48gk" path="res://scripts/inventory/item_slot_data.gd" id="4_kl7fi"]
+
+[sub_resource type="Resource" id="Resource_bxceu"]
+script = ExtResource("3_tvok8")
+slots_amount = 9
+metadata/_custom_type_script = "uid://cdalfkc8pjvq1"
+
+[sub_resource type="Resource" id="Resource_v8e04"]
+script = ExtResource("3_v8e04")
+item_name = "sword"
+level = 1
+icon_path = "res://arts/weapon_1.png"
+metadata/_custom_type_script = "uid://djafy0p6avrir"
+
+[sub_resource type="Resource" id="Resource_kl7fi"]
+script = ExtResource("4_kl7fi")
+index = 10
+item_data = SubResource("Resource_v8e04")
+metadata/_custom_type_script = "uid://d0kf8gmif48gk"
 
 [node name="Inventory" type="Control" unique_id=2130650146]
 layout_mode = 3
@@ -14,7 +35,8 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_el5y6")
-script = ExtResource("2_tvok8")
+script = ExtResource("2_el5y6")
+inventory_data = SubResource("Resource_bxceu")
 
 [node name="background" type="ColorRect" parent="." unique_id=1613053276]
 layout_mode = 0
@@ -41,38 +63,31 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ItemSlot" parent="MarginContainer/VBoxContainer/EquippedPanel" unique_id=1531392376 instance=ExtResource("3_bxceu")]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -240.0
-offset_top = 10.0
-offset_right = -240.0
-offset_bottom = 10.0
-grow_horizontal = 2
-
-[node name="ItemSlot2" parent="MarginContainer/VBoxContainer/EquippedPanel" unique_id=1459405304 instance=ExtResource("3_bxceu")]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
+[node name="WeaponItemSlot" parent="MarginContainer/VBoxContainer/EquippedPanel" unique_id=1531392376 instance=ExtResource("3_bxceu")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 10.0
-offset_top = -76.5
+offset_top = 140.0
 offset_right = 10.0
-offset_bottom = -76.5
-grow_vertical = 2
+offset_bottom = 140.0
+grow_horizontal = 1
+grow_vertical = 1
+slot_data = SubResource("Resource_kl7fi")
 
-[node name="ItemSlot4" parent="MarginContainer/VBoxContainer/EquippedPanel" unique_id=200569517 instance=ExtResource("3_bxceu")]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 5.0
-offset_top = 270.0
-offset_right = 5.0
-offset_bottom = 270.0
-grow_horizontal = 2
+[node name="ArmorItemSlot" parent="MarginContainer/VBoxContainer/EquippedPanel" unique_id=1459405304 instance=ExtResource("3_bxceu")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 1
+grow_vertical = 1
+slot_data = null
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/EquippedPanel" unique_id=1801930110]
 layout_mode = 0
@@ -115,11 +130,4 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "back"
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1865185134]
-layout_mode = 0
-offset_left = 330.0
-offset_top = 273.0
-offset_right = 370.0
-offset_bottom = 313.0
-
-[connection signal="gui_input" from="ColorRect" to="." method="_on_color_rect_gui_input"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

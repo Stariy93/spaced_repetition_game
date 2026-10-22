@@ -1,18 +1,29 @@
 [gd_scene format=3 uid="uid://c53fiyp380jrd"]
 
 [ext_resource type="Theme" uid="uid://cdxytkrunvxkc" path="res://themes/pixel_dark_theme.tres" id="1_lual2"]
-[ext_resource type="Script" uid="uid://d0kf8gmif48gk" path="res://scenes/inventory/item_slot.gd" id="2_qtd6e"]
+[ext_resource type="Script" uid="uid://8hb0a3od8tel" path="res://scenes/inventory/item_slot.gd" id="2_qtd6e"]
+[ext_resource type="Script" uid="uid://d0kf8gmif48gk" path="res://scripts/inventory/item_slot_data.gd" id="4_2i73j"]
+
+[sub_resource type="Resource" id="Resource_moenh"]
+script = ExtResource("4_2i73j")
+index = 1
+metadata/_custom_type_script = "uid://d0kf8gmif48gk"
 
 [node name="ItemSlot" type="Control" unique_id=1531392376]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_lual2")
 script = ExtResource("2_qtd6e")
+slot_data = SubResource("Resource_moenh")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=835912146]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 1
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 120.0
+offset_bottom = 120.0

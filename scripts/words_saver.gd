@@ -2,26 +2,26 @@ extends Node
 
 const WORDS_SAVE_PATH := "user://words.json"
 const INVENTORY := "user://inventory.json"
-var word_dictionary: Dictionary = {}
+var word_dictionary: Dictionary = load_dict(WORDS_SAVE_PATH)
+var inventory_dict: Dictionary = load_dict(INVENTORY)
 var player_stats_dictionary: Dictionary = {"hp": 100, "damage": [1, 5]}
-var inventory: Dictionary = create_inventory_slots()
+
 	
-func load_dict(dict: Dictionary, save_path: String) -> void:
+func load_dict(save_path: String, default_data: Dictionary = {}) -> Dictionary:
 	if not FileAccess.file_exists(save_path):
-		word_dictionary = {}
-		save_dict(dict, save_path)
-		return
-		
+		save_dict(default_data, save_path)
+		return default_data.duplicate(true)
+
 	var file := FileAccess.open(save_path, FileAccess.READ)
-	var json_text := file.get_as_text()
+	if file == null:
+		return default_data.duplicate(true)
+
 	var json := JSON.new()
-	var error := json.parse(json_text)
-	
-	if error != OK:
-		word_dictionary = {}
-		return
-	
-	word_dictionary = json.data
+	var error := json.parse(file.get_as_text())
+	if error != OK or typeof(json.data) != TYPE_DICTIONARY:
+		return default_data.duplicate(true)
+
+	return json.data
 		
 
 func save_dict(dict: Dictionary, save_path: String) -> void:
@@ -39,12 +39,7 @@ func change_dict_key(dict: Dictionary, save_path: String, old_key, new_key, new_
 	dict[new_key] = new_value
 	save_dict(dict, save_path)
 	
-	
-func create_inventory_slots() -> Dictionary:
-	var dict: Dictionary = {"equiped_items": {"armor_slot": {}, "weapon_slot": {}}, "items": {}}
-	for i in range(9):
-		dict["items"]["slot" + str(i)] = ""
-	return dict
+
 	
 
 

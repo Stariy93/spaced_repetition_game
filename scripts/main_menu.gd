@@ -8,7 +8,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(WordDictionary.word_dictionary)
+	print(WordDictionary.inventory_dict)
 	
 
 
@@ -34,3 +34,7 @@ func _on_choose_location_button_pressed() -> void:
 
 func _on_fight_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/enemy_fight.tscn")
+
+
+func _on_inventory_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/inventory/inventory.tscn")
