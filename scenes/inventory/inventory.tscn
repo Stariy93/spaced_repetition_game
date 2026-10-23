@@ -4,25 +4,15 @@
 [ext_resource type="Script" uid="uid://bvxbhmoigyknp" path="res://scenes/inventory/inventory.gd" id="2_el5y6"]
 [ext_resource type="PackedScene" uid="uid://c53fiyp380jrd" path="res://scenes/inventory/item_slot.tscn" id="3_bxceu"]
 [ext_resource type="Script" uid="uid://cdalfkc8pjvq1" path="res://scripts/inventory/inventory_data.gd" id="3_tvok8"]
-[ext_resource type="Script" uid="uid://djafy0p6avrir" path="res://scripts/inventory/item_data.gd" id="3_v8e04"]
 [ext_resource type="Script" uid="uid://d0kf8gmif48gk" path="res://scripts/inventory/item_slot_data.gd" id="4_kl7fi"]
 
 [sub_resource type="Resource" id="Resource_bxceu"]
 script = ExtResource("3_tvok8")
-slots_amount = 9
 metadata/_custom_type_script = "uid://cdalfkc8pjvq1"
 
 [sub_resource type="Resource" id="Resource_v8e04"]
-script = ExtResource("3_v8e04")
-item_name = "sword"
-level = 1
-icon_path = "res://arts/weapon_1.png"
-metadata/_custom_type_script = "uid://djafy0p6avrir"
-
-[sub_resource type="Resource" id="Resource_kl7fi"]
 script = ExtResource("4_kl7fi")
-index = 10
-item_data = SubResource("Resource_v8e04")
+type = 4
 metadata/_custom_type_script = "uid://d0kf8gmif48gk"
 
 [node name="Inventory" type="Control" unique_id=2130650146]
@@ -34,6 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 theme = ExtResource("1_el5y6")
 script = ExtResource("2_el5y6")
 inventory_data = SubResource("Resource_bxceu")
@@ -42,6 +33,7 @@ inventory_data = SubResource("Resource_bxceu")
 layout_mode = 0
 offset_right = 540.0
 offset_bottom = 960.0
+mouse_filter = 2
 color = Color(0, 0, 0.11764706, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=73214900]
@@ -51,6 +43,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -58,36 +51,56 @@ theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=257677252]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="EquippedPanel" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=33392189]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="WeaponItemSlot" parent="MarginContainer/VBoxContainer/EquippedPanel" unique_id=1531392376 instance=ExtResource("3_bxceu")]
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 10.0
 offset_top = 140.0
-offset_right = 10.0
-offset_bottom = 140.0
+offset_right = 130.0
+offset_bottom = 260.0
 grow_horizontal = 1
 grow_vertical = 1
-slot_data = SubResource("Resource_kl7fi")
+slot_data = null
+metadata/_edit_lock_ = true
 
 [node name="ArmorItemSlot" parent="MarginContainer/VBoxContainer/EquippedPanel" unique_id=1459405304 instance=ExtResource("3_bxceu")]
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 10.0
 offset_top = 10.0
-offset_right = 10.0
-offset_bottom = 10.0
+offset_right = 130.0
+offset_bottom = 130.0
 grow_horizontal = 1
 grow_vertical = 1
 slot_data = null
+metadata/_edit_lock_ = true
+
+[node name="DropItemSlot" parent="MarginContainer/VBoxContainer/EquippedPanel" unique_id=258176120 instance=ExtResource("3_bxceu")]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 370.0
+offset_top = 300.0
+offset_right = 490.0
+offset_bottom = 420.0
+grow_horizontal = 1
+grow_vertical = 1
+slot_data = SubResource("Resource_v8e04")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/EquippedPanel" unique_id=1801930110]
 layout_mode = 0
@@ -95,6 +108,7 @@ offset_left = 150.0
 offset_top = 10.0
 offset_right = 490.0
 offset_bottom = 250.0
+mouse_filter = 2
 text = "knife
 damage -> 5 - 7
 agility + 3"
@@ -104,6 +118,7 @@ custom_minimum_size = Vector2(390, 390)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 10
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/InventoryPanel" unique_id=1503818344]
 layout_mode = 1
@@ -114,6 +129,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -121,6 +137,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/InventoryPanel/MarginContainer" unique_id=1264273092]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/h_separation = 4
 theme_override_constants/v_separation = 4
 columns = 3

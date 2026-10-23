@@ -1,7 +1,7 @@
 extends Resource
 class_name Item_slot_data
 
-enum Type {WEAPON, ARMOR, POTION, ALL}
+enum Type {WEAPON, ARMOR, POTION, ALL, DROP}
 
 @export var index: int
 @export var type: Type

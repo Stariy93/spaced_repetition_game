@@ -16,6 +16,8 @@ func _process(delta: float) -> void:
 func _on_new_game_button_pressed() -> void:
 	WordDictionary.word_dictionary = {}
 	WordDictionary.save_dict(WordDictionary.word_dictionary, WordDictionary.WORDS_SAVE_PATH)
+	WordDictionary.inventory_dict.clear()
+	WordDictionary.save_dict(WordDictionary.inventory_dict, WordDictionary.INVENTORY)
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 
