@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvwiwy5wbmsyg"
-path="res://.godot/imported/weapon_1.png-05c35ee46e200eb4419161eb96525b86.ctex"
+uid="uid://q2dspsialmou"
+path="res://.godot/imported/amulet_1.png-b2bc2c2767717281118bdd643490139c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/weapon_1.png"
-dest_files=["res://.godot/imported/weapon_1.png-05c35ee46e200eb4419161eb96525b86.ctex"]
+source_file="res://arts/item_images/amulet_1.png"
+dest_files=["res://.godot/imported/amulet_1.png-b2bc2c2767717281118bdd643490139c.ctex"]
 
 [params]
 
