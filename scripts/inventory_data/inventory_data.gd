@@ -16,7 +16,7 @@ func create_inventory_slots() -> void:
 		slot_list.append(slot)
 
 	var armor_slot := Item_slot_data.new()
-	armor_slot.index = slots_amount
+	armor_slot.index = slots_amount 
 	armor_slot.type = Item_slot_data.Type.ARMOR
 	slot_list.append(armor_slot)
 
@@ -24,6 +24,11 @@ func create_inventory_slots() -> void:
 	weapon_slot.index = slots_amount + 1
 	weapon_slot.type = Item_slot_data.Type.WEAPON
 	slot_list.append(weapon_slot)
+	
+	var amulet_slot := Item_slot_data.new()
+	amulet_slot.index = slots_amount + 2
+	amulet_slot.type = Item_slot_data.Type.AMULET
+	slot_list.append(amulet_slot)
 	
 	
 func inventory_save() -> Dictionary:

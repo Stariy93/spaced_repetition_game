@@ -1,7 +1,7 @@
 extends Resource
 class_name Item_slot_data
 
-enum Type {WEAPON, ARMOR, POTION, ALL}
+enum Type {WEAPON, ARMOR, AMULET, ALL}
 
 @export var index: int
 @export var type: Type
@@ -36,7 +36,17 @@ func add_item_data(new_item_data: Item_data) -> void:
 	
 func remove_item() -> void:
 	item_data = null
-
+	
+	
+func can_accept_item(item_data: Item_data) -> bool:
+	if self.type == self.Type.ALL:
+		return true
+	elif item_data.type == self.type:
+		return true
+	else:
+		return false
+	
+	
 
 
 

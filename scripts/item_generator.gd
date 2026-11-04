@@ -49,7 +49,7 @@ func build_armor(lvl: int) -> Armor_data:
 	var name_icon = armor_image_list.pick_random()
 	item.item_name = name_icon[0]
 	item.icon_path = name_icon[1]
-	var value = range(1, lvl).pick_random()
+	var value = range(1, lvl + 1).pick_random()
 	item.level = value
 	item.block = item.block * lvl
 	if randf() > 0.05 * lvl:
@@ -70,7 +70,7 @@ func build_weapon(lvl: int) -> Weapon_data:
 	var name_icon = weapon_image_list.pick_random()
 	item.item_name = name_icon[0]
 	item.icon_path = name_icon[1]
-	var value = range(1, lvl).pick_random()
+	var value = range(1, lvl + 1).pick_random()
 	item.level = value
 	item.damage = item.damage * lvl
 	if randf() > 0.05 * lvl:
@@ -90,7 +90,7 @@ func build_amulet(lvl: int) -> Amulet_data:
 	var name_icon = amulet_image_list.pick_random()
 	item.item_name = name_icon[0]
 	item.icon_path = name_icon[1]
-	var value = range(1, lvl).pick_random()
+	var value = range(1, lvl + 1).pick_random()
 	item.level = value
 	item.regen = item.regen * lvl
 	if randf() > 0.05 * lvl:

@@ -7,7 +7,7 @@ class_name Armor_data
 
 
 func _init() -> void:
-	type = Type.WEAPON
+	type = Type.ARMOR
 	
 	
 func generate_name() -> void:

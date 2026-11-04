@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://svqsea61cbqm"]
+
+[ext_resource type="Theme" uid="uid://cdxytkrunvxkc" path="res://themes/pixel_dark_theme.tres" id="1_iebs8"]
+[ext_resource type="Script" uid="uid://4f823ibc8r8a" path="res://scenes/inventory/inventiry_ui.gd" id="2_1gxcx"]
+[ext_resource type="Script" uid="uid://cdalfkc8pjvq1" path="res://scripts/inventory_data/inventory_data.gd" id="3_mklge"]
+[ext_resource type="PackedScene" uid="uid://dk50ooqohjaac" path="res://scenes/inventory/SlotUI.tscn" id="3_vadke"]
+[ext_resource type="Script" uid="uid://bh62iluj6sk05" path="res://scripts/inventory_data/armor_data.gd" id="5_1myfb"]
+[ext_resource type="Script" uid="uid://d0kf8gmif48gk" path="res://scripts/inventory_data/item_slot_data.gd" id="6_pcy1s"]
+
+[sub_resource type="Resource" id="Resource_p1iab"]
+script = ExtResource("3_mklge")
+slots_amount = 9
+metadata/_custom_type_script = "uid://cdalfkc8pjvq1"
+
+[sub_resource type="Resource" id="Resource_1myfb"]
+script = ExtResource("5_1myfb")
+icon_path = "res://arts/item_images/armor_2.png"
+metadata/_custom_type_script = "uid://bh62iluj6sk05"
+
+[sub_resource type="Resource" id="Resource_mklge"]
+script = ExtResource("6_pcy1s")
+index = 10
+item_data = SubResource("Resource_1myfb")
+metadata/_custom_type_script = "uid://d0kf8gmif48gk"
+
+[node name="InventiryUi" type="Control" unique_id=614037483]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_iebs8")
+script = ExtResource("2_1gxcx")
+data = SubResource("Resource_p1iab")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=191310652]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1081019940]
+layout_mode = 2
+
+[node name="PanelTop" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=176011557]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ArmorSlot" parent="MarginContainer/VBoxContainer/PanelTop" unique_id=614117978 instance=ExtResource("3_vadke")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 130.0
+offset_bottom = 130.0
+slot_data = SubResource("Resource_mklge")
+
+[node name="WeaponSlot" parent="MarginContainer/VBoxContainer/PanelTop" unique_id=1908963729 instance=ExtResource("3_vadke")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 270.0
+offset_right = 130.0
+offset_bottom = 390.0
+
+[node name="AmuletSlot" parent="MarginContainer/VBoxContainer/PanelTop" unique_id=1699756511 instance=ExtResource("3_vadke")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 140.0
+offset_right = 130.0
+offset_bottom = 260.0
+
+[node name="PanelBottom" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=338034407]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/PanelBottom" unique_id=1035199443]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 10
+columns = 4
+
+[node name="ButtonBack" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1651439102]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "back"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonBack" to="." method="_on_button_back_pressed"]
