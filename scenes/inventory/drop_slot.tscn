@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bewi61um7g3ny"]
+
+[ext_resource type="Theme" uid="uid://cdxytkrunvxkc" path="res://themes/pixel_dark_theme.tres" id="1_xyyak"]
+[ext_resource type="Texture2D" uid="uid://dk0fhlfwol8ym" path="res://arts/trush.png" id="2_508kt"]
+[ext_resource type="Script" uid="uid://brw8jdn4bsogq" path="res://scenes/inventory/drop_slot.gd" id="3_jimvd"]
+
+[node name="DropSlot" type="TextureRect" unique_id=431907631]
+custom_minimum_size = Vector2(120, 120)
+offset_right = 120.0
+offset_bottom = 120.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xyyak")
+texture = ExtResource("2_508kt")
+script = ExtResource("3_jimvd")

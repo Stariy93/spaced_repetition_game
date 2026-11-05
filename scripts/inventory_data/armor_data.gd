@@ -5,6 +5,8 @@ class_name Armor_data
 @export var extra_block_chance: float = 0.05
 @export var dodge_chance: float = 0.05
 
+var base_name: String = ""
+
 
 func _init() -> void:
 	type = Type.ARMOR
@@ -12,7 +14,6 @@ func _init() -> void:
 	
 func generate_name() -> void:
 	var prefix: String = "Blocked" if extra_block_chance > 0.0 else "Leather"
-	var base_name: String = "Bib"
 	var suffix: String = "of Dodge" if dodge_chance > 0.0 else ""
 	
 	item_name = ("%s %s %s" % [prefix, base_name, suffix]).strip_edges()

@@ -5,13 +5,15 @@ class_name Weapon_data
 @export var extra_damage_chance: float = 0.05
 @export var crit_chance: float = 0.05
 
+var base_name: String = ""
+
+
 func _init() -> void:
 	type = Type.WEAPON
 	
 
 func generate_name() -> void:
 	var prefix = "Mighty" if extra_damage_chance > 0.0 else "Ordinary"
-	var base_name = "Blade"
 	var suffix = "of Crit" if crit_chance > 0.0 else ""
 	
 	# Склеиваем имя и удаляем лишние пробелы, если суффикса нет

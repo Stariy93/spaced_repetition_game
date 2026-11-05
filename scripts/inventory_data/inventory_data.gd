@@ -31,6 +31,7 @@ func create_inventory_slots() -> void:
 	slot_list.append(amulet_slot)
 	
 	
+	
 func inventory_save() -> Dictionary:
 	var slots: Array = []
 	for slot in slot_list:

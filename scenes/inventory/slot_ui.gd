@@ -9,7 +9,8 @@ signal item_transferred
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	if slot_data and slot_data.item_data:
+		icon.tooltip_text = slot_data.item_data.item_description()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,6 +24,7 @@ func update() -> void:
 		icon.modulate = Color8(slot_data.item_data.image_color[0],\
 		slot_data.item_data.image_color[1],slot_data.item_data.image_color[2],\
 		slot_data.item_data.image_color[3])  
+		icon.tooltip_text = slot_data.item_data.item_description()
 	else:
 		icon.texture = null
 		

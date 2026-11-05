@@ -8,8 +8,9 @@ const slot_ui := preload("res://scenes/inventory/SlotUI.tscn")
 @onready var armor_slot: SlotUI = $MarginContainer/VBoxContainer/PanelTop/ArmorSlot
 @onready var weapon_slot: SlotUI = $MarginContainer/VBoxContainer/PanelTop/WeaponSlot
 @onready var amulet_slot: SlotUI = $MarginContainer/VBoxContainer/PanelTop/AmuletSlot
+@onready var trash_slot: TrashSlotUI = $MarginContainer/VBoxContainer/PanelTop/DropSlot
 @onready var grid_container: GridContainer = $MarginContainer/VBoxContainer/PanelBottom/GridContainer
-
+@onready var curent_description: RichTextLabel = $MarginContainer/VBoxContainer/PanelTop/Panel/RichTextLabel
 
 
 var slots: Array[SlotUI]
@@ -19,6 +20,7 @@ func _ready() -> void:
 	build_inventory()
 	test()
 	update_inventory()
+	trash_slot.item_destroyed.connect(_on_item_destroyed)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -90,6 +92,7 @@ func replace_item(from_index: int, to_index: int) -> void:
 func update_inventory() -> void:
 	for slot in slots:
 		slot.update()
+		update_curent_descriptions()
 		
 			
 	
@@ -98,3 +101,21 @@ func test() -> void:
 	var item: Item_data = generator.generate_item(20)
 	slots[0].slot_data.item_data = item
 	
+
+func update_curent_descriptions() -> void:
+	var description: String = ""
+	if armor_slot.slot_data.item_data:
+		description += "armor : " + armor_slot.slot_data.item_data.item_description() + "\n"
+	if weapon_slot.slot_data.item_data:
+		description += "weapon : " + weapon_slot.slot_data.item_data.item_description() + "\n"
+	if amulet_slot.slot_data.item_data:
+		description += "amulet : " + amulet_slot.slot_data.item_data.item_description()
+	curent_description.text = description
+	
+	
+func _on_item_destroyed(from_index: int) -> void:
+	# 1. Зануляем предмет в массиве данных инвентаря
+	data.slot_list[from_index].item_data = null
+	
+	# 2. Обновляем графический слот, откуда взяли предмет
+	update_inventory()

@@ -4,24 +4,12 @@
 [ext_resource type="Script" uid="uid://4f823ibc8r8a" path="res://scenes/inventory/inventiry_ui.gd" id="2_1gxcx"]
 [ext_resource type="Script" uid="uid://cdalfkc8pjvq1" path="res://scripts/inventory_data/inventory_data.gd" id="3_mklge"]
 [ext_resource type="PackedScene" uid="uid://dk50ooqohjaac" path="res://scenes/inventory/SlotUI.tscn" id="3_vadke"]
-[ext_resource type="Script" uid="uid://bh62iluj6sk05" path="res://scripts/inventory_data/armor_data.gd" id="5_1myfb"]
-[ext_resource type="Script" uid="uid://d0kf8gmif48gk" path="res://scripts/inventory_data/item_slot_data.gd" id="6_pcy1s"]
+[ext_resource type="PackedScene" uid="uid://bewi61um7g3ny" path="res://scenes/inventory/drop_slot.tscn" id="5_xxrg6"]
 
 [sub_resource type="Resource" id="Resource_p1iab"]
 script = ExtResource("3_mklge")
-slots_amount = 9
+slots_amount = 8
 metadata/_custom_type_script = "uid://cdalfkc8pjvq1"
-
-[sub_resource type="Resource" id="Resource_1myfb"]
-script = ExtResource("5_1myfb")
-icon_path = "res://arts/item_images/armor_2.png"
-metadata/_custom_type_script = "uid://bh62iluj6sk05"
-
-[sub_resource type="Resource" id="Resource_mklge"]
-script = ExtResource("6_pcy1s")
-index = 10
-item_data = SubResource("Resource_1myfb")
-metadata/_custom_type_script = "uid://d0kf8gmif48gk"
 
 [node name="InventiryUi" type="Control" unique_id=614037483]
 layout_mode = 3
@@ -33,6 +21,15 @@ grow_vertical = 2
 theme = ExtResource("1_iebs8")
 script = ExtResource("2_1gxcx")
 data = SubResource("Resource_p1iab")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1629949342]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.078431375, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=191310652]
 layout_mode = 1
@@ -60,7 +57,6 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 130.0
 offset_bottom = 130.0
-slot_data = SubResource("Resource_mklge")
 
 [node name="WeaponSlot" parent="MarginContainer/VBoxContainer/PanelTop" unique_id=1908963729 instance=ExtResource("3_vadke")]
 layout_mode = 0
@@ -75,6 +71,28 @@ offset_left = 10.0
 offset_top = 140.0
 offset_right = 130.0
 offset_bottom = 260.0
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/PanelTop" unique_id=1815990289]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 10.0
+offset_right = 510.0
+offset_bottom = 300.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PanelTop/Panel" unique_id=57095945]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DropSlot" parent="MarginContainer/VBoxContainer/PanelTop" unique_id=1621457063 instance=ExtResource("5_xxrg6")]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 310.0
+offset_right = 510.0
+offset_bottom = 430.0
 
 [node name="PanelBottom" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=338034407]
 layout_mode = 2

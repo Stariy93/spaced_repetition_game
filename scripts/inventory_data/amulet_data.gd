@@ -5,13 +5,14 @@ class_name Amulet_data
 @export var uses: int = 1
 @export var recover_chance: float = 0.02
 
+var base_name: String = ""
+
 func _init() -> void:
 	type = Type.AMULET
 	
 	
 func generate_name() -> void:
 	var prefix: String = "Large" if uses > 1 else "Small"
-	var base_name: String = "Amulet"
 	var suffix: String = "of Treatment" if recover_chance > 0.0 else ""
 	
 	item_name = ("%s %s %s" % [prefix, base_name, suffix]).strip_edges()
@@ -45,7 +46,7 @@ func color_definition() -> Array:
 
 func item_description() -> String:
 	var description = super.item_description()
-	description = "\nregen > {0}".format([regen])
+	description += "\nregen > {0}".format([regen])
 	description += "\nuses > {0}".format([uses])
 	if recover_chance > 0:
 		description += "\nrecover > {0} %".format([recover_chance*100])

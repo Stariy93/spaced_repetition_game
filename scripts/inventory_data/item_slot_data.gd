@@ -23,8 +23,21 @@ func load_slot(data: Dictionary) -> void:
 	if item_dict == null:
 		item_data = null
 	else:
-		item_data = Item_data.new()
-		item_data.load_item(item_dict)
+		item_data = _instantiate_item(item_dict)
+		if item_data:
+			item_data.load_item(item_dict)
+			
+			
+func _instantiate_item(dict: Dictionary) -> Item_data:
+	var item_type_str: String = dict.get("type", "")
+	match item_type_str:
+		"WEAPON":
+			return Weapon_data.new()
+		"ARMOR":
+			return Armor_data.new()
+		"AMULET":
+			return Amulet_data.new()
+	return Item_data.new()
 		
 		
 func add_item_data(new_item_data: Item_data) -> void:
