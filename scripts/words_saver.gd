@@ -30,13 +30,13 @@ func save_dict(dict: Dictionary, save_path: String) -> void:
 	
 	
 func remove_dict_element(dict: Dictionary, save_path: String, word_key) -> void:
-	dict.erase(word_key)
+	dict.erase(str(word_key))
 	save_dict(dict, save_path)
 	
 	
-func change_dict_key(dict: Dictionary, save_path: String, old_key, new_key, new_value) -> void:
-	dict.erase(old_key)
-	dict[new_key] = new_value
+func change_dict_key(dict: Dictionary, save_path: String, index, new_native, new_studied) -> void:
+	dict[str(index)]["native"] = new_native
+	dict[str(index)]["studied"] = new_studied
 	save_dict(dict, save_path)
 	
 

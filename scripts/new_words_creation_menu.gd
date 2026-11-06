@@ -15,8 +15,10 @@ func _process(delta: float) -> void:
 
 #This function changes word and translations, save a new values and clear imput fields
 func _on_accept_button_pressed() -> void:
-	WordDictionary.word_dictionary[value1.text] = {}
-	WordDictionary.word_dictionary[value1.text] = {"translation": value2.text, "level": 1}
+	var new_dict: Dictionary = {"studied": value1.text, "native": value2.text, "basket": 0, \
+	"timeout" : 0}
+	var index = len(WordDictionary.word_dictionary)
+	WordDictionary.word_dictionary[index] = new_dict
 	WordDictionary.save_dict(WordDictionary.word_dictionary, WordDictionary.WORDS_SAVE_PATH)
 	$VBoxContainer/Value1LineEdit.text = ""
 	$VBoxContainer/Value2LineEdit.text = ""
